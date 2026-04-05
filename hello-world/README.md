@@ -12,19 +12,29 @@ This project demonstrates a simple use of [LangChain](https://python.langchain.c
 ## Requirements
 
 - Python 3.14+
+- OpenAI API key
 - [Ollama](https://ollama.com/) (if using local models)
-- OpenAI API key (if using OpenAI models)
 
-Install dependencies:
+## Installation
 
-```bash
-pip install -r requirements.txt
-```
-
-## Setup
-
-1. Copy `.env.example` to `.env` and add your OpenAI API key if using OpenAI models.
-2. (Optional) Install and run Ollama for local LLM support.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/vinothvino42/ai-projects.git
+   cd hello-world
+   ```
+2. Install [uv](https://github.com/astral-sh/uv) if you don't have it:
+   ```bash
+   pip install uv
+   ```
+3. Install dependencies using uv:
+   ```bash
+   uv venv && uv add -r requirements.txt
+   ```
+4. Setup environment variables:
+   ```bash
+   cp .env.example .env
+   # Then edit .env to add your API keys
+   ```
 
 ## Usage
 
@@ -35,12 +45,3 @@ python main.py
 ```
 
 You should see a summary and two interesting facts about Elon Musk printed to the console.
-
-## Customization
-
-- To use a different model, modify the `llm` assignment in `main.py`.
-- To summarize different information, change the `information` variable.
-
-## License
-
-This project is licensed under the MIT License.

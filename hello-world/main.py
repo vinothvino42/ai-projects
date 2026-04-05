@@ -7,7 +7,6 @@ load_dotenv()
 
 
 def main():
-    print("Hello from langchain!")
     information = """
     Elon Reeve Musk FRS (/ˈiːlɒn/ EE-lon; born June 28, 1971) is a businessman, known for his leadership of Tesla, SpaceX, X (formerly Twitter), and the Department of Government Efficiency (DOGE). Musk has been the wealthiest person in the world since 2021; as of May 2025, Forbes estimates his net worth to be US$424.7 billion.
 
@@ -30,8 +29,8 @@ Musk's political activities, views, and statements have made him a polarizing fi
         input_variables=["information"], template=summary_template
     )
 
-    # llm = ChatOpenAI(model="gpt-5", temperature=0)
-    llm = ChatOllama(model="gemma4", temperature=0)
+    # llm = ChatOllama(model="gemma4", temperature=0)
+    llm = ChatOpenAI(model="gpt-5", temperature=0)
     chain = summary_prompt_template | llm
 
     response = chain.invoke(input={"information": information})
