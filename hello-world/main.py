@@ -30,7 +30,7 @@ Musk's political activities, views, and statements have made him a polarizing fi
     )
 
     # llm = ChatOllama(model="gemma4", temperature=0)
-    llm = ChatOpenAI(model="gpt-5", temperature=0)
+    llm = ChatOpenAI(model="gpt-5.4-mini", temperature=0)
     chain = summary_prompt_template | llm
 
     response = chain.invoke(input={"information": information})

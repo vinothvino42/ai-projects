@@ -1,6 +1,6 @@
 # Search Agent
 
-Search Agent is a Python project that uses AI to search for and retrieve the top Flutter packages from pub.dev, including their descriptions and like counts. It leverages LangChain, OpenAI, and TavilySearch to provide structured, automated search results for Flutter developers.
+Search Agent uses AI to search for and retrieve the top Flutter packages from pub.dev, including their descriptions and like counts. It leverages LangChain, OpenAI, and TavilySearch to provide structured, automated search results for Flutter developers.
 
 ## Features
 

@@ -19,7 +19,7 @@ def get_weather(city: str) -> str:
 
 
 agent = create_agent(
-    model="gpt-4o-mini",
+    model="gpt-5.4-mini",
     tools=[get_weather],
     system_prompt="You are a helpful assistant that provides weather information.",
 )

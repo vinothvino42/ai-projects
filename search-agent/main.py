@@ -21,7 +21,7 @@ class FlutterPackages(BaseModel):
 
 
 tavily_tool = TavilySearch(max_results=5)
-llm = ChatOpenAI(model="gpt-4o", temperature=0)
+llm = ChatOpenAI(model="gpt-5.4-mini", temperature=0)
 agent = create_agent(model=llm, tools=[tavily_tool], response_format=FlutterPackages)
 
 
