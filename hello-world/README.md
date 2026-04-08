@@ -5,7 +5,7 @@ This project demonstrates a simple use of [LangChain](https://python.langchain.c
 ## Features
 
 - Loads environment variables from `.env` (see `.env.example`)
-- Uses LangChain's prompt templates and LLM chains
+- Uses LangChain's prompt templates, LLM chains, and tool calling (function calling)
 - Supports both OpenAI and Ollama models (default: Ollama's `gemma4`)
 - Summarizes information and generates interesting facts
 

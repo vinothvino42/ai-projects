@@ -6,7 +6,7 @@ Search Agent is a Python project that uses AI to search for and retrieve the top
 
 - Retrieves the top 5 most liked Flutter packages from pub.dev
 - Provides package name, description, and number of likes
-- Utilizes AI-powered search and structured response parsing
+- Utilizes AI-powered search, tool calling (function calling), and structured response parsing
 - Easily extensible for other search queries or data sources
 
 ## Requirements
