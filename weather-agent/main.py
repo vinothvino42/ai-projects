@@ -1,21 +1,40 @@
+import os
+
+import requests
 from dotenv import load_dotenv
 from langchain.agents import create_agent
 from langchain.tools import tool
 
 load_dotenv()
 
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
+
 
 @tool
 def get_weather(city: str) -> str:
-    """Get current weather for a city."""
+    """Get current weather for a city using OpenWeatherMap API."""
 
-    weather_data = {
-        "chennai": "Sunny, 34°C",
-        "bangalore": "Cloudy, 25°C",
-        "mumbai": "Humid, 30°C",
+    url = "https://api.openweathermap.org/data/2.5/weather"
+    params = {
+        "q": city,
+        "appid": OPENWEATHER_API_KEY,
+        "units": "metric",
     }
 
-    return weather_data.get(city.lower(), "Weather data not available")
+    try:
+        response = requests.get(url, params=params)
+        data = response.json()
+
+        if response.status_code != 200:
+            return f"Error: {data.get('message', 'Unable to fetch weather')}"
+
+        weather = data["weather"][0]["description"].capitalize()
+        temp = data["main"]["temp"]
+
+        return f"{weather}, {temp}°C"
+
+    except Exception as e:
+        return f"Error fetching weather: {str(e)}"
 
 
 agent = create_agent(
@@ -25,7 +44,7 @@ agent = create_agent(
 )
 
 response = agent.invoke(
-    {"messages": [{"role": "user", "content": "What's the weather in Chennai today?"}]}
+    {"messages": [{"role": "user", "content": "What's the weather in Trivandrum today?"}]}
 )
 
 print(response["messages"][-1].content)

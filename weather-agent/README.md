@@ -1,18 +1,20 @@
 # Weather Agent
 
-Weather Agent provides current weather information for a given city using AI-powered agents and tool-calling. It leverages LangChain, OpenAI, and a simple tool-calling mechanism to return weather data for select cities. This project demonstrates how to build an AI-powered agent that can answer user queries using structured tools.
+Weather Agent provides current weather information for any city using AI-powered agents and the OpenWeatherMap API. It leverages LangChain, OpenAI, and a tool-calling mechanism to fetch real-time weather data. This project demonstrates how to build an AI-powered agent that can answer user queries using external APIs.
 
 ## Features
 
-- Provides current weather information for select cities (Chennai, Bangalore, Mumbai)
-- Uses AI-powered agent with tool-calling (function calling)
-- Easily extensible to support more cities or integrate real weather APIs
+- Provides current weather information for any city worldwide
+- Uses OpenWeatherMap API for real-time weather data
+- AI-powered agent with tool-calling (function calling)
+- Easily extensible for more features or APIs
 
 ## Requirements
 
 - Python 3.14+
 - [Ollama](https://ollama.com/) (if using local models)
-- OpenAI API key
+- OpenAI API key (for LLM)
+- OpenWeatherMap API key
 
 ## Installation
 
@@ -30,9 +32,10 @@ Weather Agent provides current weather information for a given city using AI-pow
    uv venv && uv add -r requirements.txt
    ```
 4. Setup environment variables:
-   - Create a `.env` file and add your OpenAI API key:
+   - Create a `.env` file and add your API keys:
      ```env
      OPENAI_API_KEY=your_openai_api_key
+     OPENWEATHER_API_KEY=your_openweathermap_api_key
      ```
 
 ## Usage
@@ -43,17 +46,17 @@ Run the main script to get the weather for a city:
 python main.py
 ```
 
-By default, the script will ask for the weather in Chennai. You can modify the code to query other cities or extend the tool for more dynamic input.
+By default, the script will ask for the weather in Trivandrum using the OpenWeatherMap API. You can modify the code to query other cities or extend the tool for more dynamic input.
 
-The script will output the current weather for the requested city directly to the console.
+The script will output the current weather for the requested city directly to the console, e.g.:
 
 ## Example Output
 
 ```
-Weather data for Chennai: Sunny, 34°C
+Clear sky, 34°C
 ```
 
 ## Extending
 
-- To add more cities, update the `weather_data` dictionary in `main.py`.
-- To use real weather data, replace the `get_weather` tool implementation with an API call to a weather service.
+- To add more features (e.g., forecast, humidity), update the `get_weather` tool in `main.py`.
+- You can further customize the agent or integrate with other APIs as needed.
